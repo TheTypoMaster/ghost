@@ -28,7 +28,7 @@ mkdir -p out/modules                                                       # mak
 cp arch/arm/boot/zImage out/zImage                                         # copy zImage
 # Find and copy modules
 find -name '*.ko' | xargs -I {} cp {} ./out/modules/
-cp -r out/* ~/megabyte/kernel/                                              # copy zImage and modules to a my folder
+cp -r out/* ~/kernel/anykernel/                                              # copy zImage and modules to a my folder
 echo 'done'
 echo ''
 if [ -a arch/arm/boot/zImage ]; then
@@ -36,10 +36,10 @@ echo '#############'
 echo 'Making Anykernel zip'
 echo '#############'
 echo ''
-cd ~/megabyte/kernel/                                                       # cd to the my folder
+cd ~/kernel/anykernel/                                                       # cd to the my folder
 . zip_anykernel.sh                                                              # execute the script to make an anykernel updater zip
 if [[ $1 = -d ]]; then
-cp $zipname ~/megabyte/kernel/$zipname
+cp $zipname ~/kernel/anykernel/$zipname
 echo "Copying $zipname to My Folder"
 fi
 cd $local_dir                                                              # cd back to the old dir
